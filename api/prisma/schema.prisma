@@ -1,0 +1,17 @@
+datasource mysql {
+  provider = "mysql"
+  url      = "mysql://root:prisma@localhost:3306/db"
+}
+
+generator photonjs {
+  provider = "photonjs"
+}
+
+generator nexus_prisma {
+  provider = "nexus-prisma"
+}
+
+model User {
+  id   Int    @id
+  name String
+}

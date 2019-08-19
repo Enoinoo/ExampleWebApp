@@ -21,8 +21,8 @@ interface Options {
 
 function create(initialState: any, { getToken, fetchOptions }: Options) {
   const httpLink = createHttpLink({
-    uri: "https://localhost:4000",
-    credentials: "include",
+    uri: "http://localhost:4000",
+    //credentials: "include",
     fetchOptions
   });
 
@@ -53,6 +53,7 @@ export default function initApollo(initialState: any, options: Options) {
     let fetchOptions = {};
     // If you are using a https_proxy, add fetchOptions with 'https-proxy-agent' agent instance
     // 'https-proxy-agent' is required here because it's a sever-side only module
+
     if (process.env.https_proxy) {
       fetchOptions = {
         agent: new (require("https-proxy-agent"))(process.env.https_proxy)

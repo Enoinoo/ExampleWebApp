@@ -1,0 +1,9 @@
+datasource mysql {
+  provider = "mysql"
+  url      = "http://localhost:3306"
+}
+
+model User {
+  id   Int    @id
+  name String
+}
