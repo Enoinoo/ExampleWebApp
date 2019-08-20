@@ -16,6 +16,7 @@ const Mutation = objectType({
   name: "Mutation",
   definition(t) {
     t.crud.createOneUser();
+    t.crud.deleteOneUser();
   }
 });
 
@@ -24,6 +25,8 @@ const User = objectType({
   definition(t) {
     t.model.id();
     t.model.name();
+    t.model.email();
+    t.model.password();
   }
 });
 

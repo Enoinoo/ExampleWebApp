@@ -13,6 +13,8 @@ generator nexus_prisma {
 }
 
 model User {
-  id   Int    @id
-  name String
+  id       Int    @id
+  name     String
+  email    String @unique
+  password String
 }
