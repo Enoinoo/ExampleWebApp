@@ -12,6 +12,13 @@ const Query = objectType({
   }
 });
 
+const Mutation = objectType({
+  name: "Mutation",
+  definition(t) {
+    t.crud.createOneUser();
+  }
+});
+
 const User = objectType({
   name: "User",
   definition(t) {
@@ -27,7 +34,7 @@ const nexusPrisma = nexusPrismaPlugin({
 });
 
 const schema = makeSchema({
-  types: [Query, User, nexusPrisma],
+  types: [Query, Mutation, User, nexusPrisma],
 
   outputs: {
     schema: path.join(__dirname, "./generated/schema.graphql"),
