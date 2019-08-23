@@ -1,6 +1,6 @@
 import * as path from "path";
 import { ApolloServer } from "apollo-server";
-import { objectType, makeSchema } from "@prisma/nexus";
+import { objectType, makeSchema, arg } from "@prisma/nexus";
 import { nexusPrismaPlugin } from "@generated/nexus-prisma";
 import Photon from "@generated/photon";
 
@@ -17,6 +17,20 @@ const Mutation = objectType({
   definition(t) {
     t.crud.createOneUser();
     t.crud.deleteOneUser();
+
+    t.field("signinUser", {
+      type: "User",
+      args: {
+        email: arg({ type: "String" }),
+        password: arg({ type: "String" })
+      },
+      resolve: async (root, { email, password }, ctx) => {
+        const user = ctx.photon.users.findOne({
+          where: { email }
+        });
+        return user;
+      }
+    });
   }
 });
 

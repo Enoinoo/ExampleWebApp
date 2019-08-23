@@ -17,7 +17,6 @@ interface User {
 
 const UserList = () => {
   const { loading, error, data } = useQuery(GET_USERS);
-  console.log(data);
   if (loading) return <p>Loading ...</p>;
   if (error) console.log(error);
   return (
