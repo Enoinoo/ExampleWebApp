@@ -21,8 +21,7 @@ interface Options {
 
 function create(initialState: any, { getToken, fetchOptions }: Options) {
   const httpLink = createHttpLink({
-    uri: "http://localhost:4000",
-    //credentials: "include",
+    uri: process.env.API_URL,
     fetchOptions
   });
 

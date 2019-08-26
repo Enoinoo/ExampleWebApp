@@ -1,6 +1,6 @@
 datasource mysql {
   provider = "mysql"
-  url      = "mysql://admin:password@database-1.cjfbolkidkuz.us-east-2.rds.amazonaws.com:3306/prisma2"
+  url      = env("MYSQL_URL")
   //url      = "mysql://root:prisma@localhost:3306/db"
 }
 
